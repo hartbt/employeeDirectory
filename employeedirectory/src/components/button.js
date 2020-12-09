@@ -7,7 +7,7 @@ function Button({ children }) {
       borderRadius: "6px",
       backgroundColor: "yellow",
     },
-  };
+  }
 
   return (
     <button className="Button" style={Style.buttonStyle}>
