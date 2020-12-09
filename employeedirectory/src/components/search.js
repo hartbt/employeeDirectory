@@ -1,26 +1,25 @@
-import React, {useState, useContext} from 'react';
-import { EmployeeContext } from './EmployeeContext.js';
+import { EmployeeContext } from "./employeeContext.js";
+import React, { useState, useContext } from "react";
 
-function Search(){
+function Search() {
+  const [search, setSearch] = useState("");
+  const { employees, setDisplayedEmployees } = useContext(EmployeeContext);
 
-    const [search, setSearch] = useState("")
-    const {employees, setDisplayedEmployees} = useContext(EmployeeContext)
-    
-    function updateSearch({target}){
+  function updateSearch({ target }) {
+    const searchTerm = target.value;
 
-        const searchTerm = target.value
+    const filterResult = employees.filter(function (employee) {
+      setSearch(searchTerm);
 
-        setSearch(searchTerm)
+      return employee.name.first
+        .toLowerCase()
+        .indexOf(searchTerm.toLowerCase()) !== -1
+        ? true
+        : false;
+    });
+    setDisplayedEmployees([...filterResult]);
+  }
 
-        const filterResult = employees.filter(function(employee){
- 
-            return employee.name.first.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ? true : false
-        })
-        setDisplayedEmployees([...filterResult])
-    }
-
-    return(
-       <input type="text" onChange= {updateSearch} value={search}></input>
-    )
+  return <input type="text" onChange={updateSearch} value={search}></input>;
 }
 export default Search;

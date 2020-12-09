@@ -1,19 +1,18 @@
-import React from 'react';
+import React from "react";
 
-function Button({children}){
+function Button({ children }) {
+  const Style = {
+    buttonStyle: {
+      border: "none",
+      borderRadius: "6px",
+      backgroundColor: "yellow",
+    },
+  };
 
-    const Style = {
-        buttonStyle: {
-            border: "none",
-            borderRadius: "6px",
-            backgroundColor: "blue"
-        },
-    }
-   
-    return(
-        <button className="Button" style={Style.buttonStyle}>
-            {children}
-        </button>
-    )
+  return (
+    <button className="Button" style={Style.buttonStyle}>
+      {children}
+    </button>
+  );
 }
 export default Button;

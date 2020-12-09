@@ -1,5 +1,5 @@
 import {useEffect, useContext} from 'react';
-import {EmployeeContext} from "../components/EmployeeContext"
+import {EmployeeContext} from "../components/employeeContext"
 import axios from "axios"
 
 export function useGet(url){
@@ -21,20 +21,20 @@ export function useGet(url){
         getEmployees()
     },[])
 
-    function sortFunc(sort){
+    function sortFunction(sort){
         switch(sort){
             case "name":
-                sortByName()
+                byName()
                 break
             case "age":
-                sortByAge()
+                byAge()
                 break
             default:
                 console.log("sort does not match any cases")
         }
     }
 
-    function sortByName(){
+    function byName(){
          employees.sort(function(a,b){
             if(a.name.first < b.name.first){
                 return -1;
@@ -46,13 +46,13 @@ export function useGet(url){
         setDisplayedEmployees([...employees])
     }
 
-    function sortByAge(){
+    function byAge(){
         employees.sort(function(a,b){
             return (a.dob.age - b.dob.age)
         })
         setDisplayedEmployees([...employees])
     }
 
-    return {displayedEmployees, sortFunc}
+    return {displayedEmployees, sortFunction}
 
 }
