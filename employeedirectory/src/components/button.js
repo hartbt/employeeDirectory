@@ -1,11 +1,12 @@
 import React from 'react';
-import "./Button.css"
 
 function Button({children}){
 
     const Style = {
         buttonStyle: {
-            
+            border: "none",
+            borderRadius: "6px",
+            backgroundColor: "blue"
         },
     }
    
