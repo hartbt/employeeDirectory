@@ -1,13 +1,32 @@
 import React from 'react';
 import Search from "./Search.js"
-import "./Navbar.css"
 
 function Navbar(){
-    // used as the navbar for the site.
+    
+    const Style = {
+        navbarStyle: {
+          display: "flex",
+          backgroundColor: "blue",
+          color: "white",
+          justifyContent: "space-between",
+          alignItem: "center",
+          padding: "10px 5px 10px 5px"
+        },
+        logoArea: {
+            fontSize: "24px"
+        }, 
+        bold: {
+            fontWeight: "bold"
+        },
+        displayFlex: {
+            display: "flex"
+        }
+    }
+
     return(
-        <div className="navbar">
-            <div className="logo bold">Employee Directory</div>
-            <div className="descriptor">
+        <div className="navbar" style={Style.navbarStyle}>
+            <div className="logo bold" style={Style.logoArea, Style.bold}>Employee Directory</div>
+            <div className="descriptor" style={Style.displayFlex}>
                 <div className="bold">Employee Search: </div>
                 <Search />
             </div>
