@@ -11,7 +11,7 @@ function Button({children}){
     }
    
     return(
-        <button className="Button">
+        <button className="Button" style={Style.buttonStyle}>
             {children}
         </button>
     )
