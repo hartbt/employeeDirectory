@@ -1,9 +1,8 @@
 import React, {useState, useContext} from 'react';
 import { EmployeeContext } from './EmployeeContext.js';
-import "./Search.css"
 
 function Search(){
-    
+
     const [search, setSearch] = useState("")
     const {employees, setDisplayedEmployees} = useContext(EmployeeContext)
     
